@@ -154,3 +154,70 @@
 ```
 <br>
 
+14. Create content in index.html for blog starting_page
+```bash
+    // Do your own
+```
+<br>
+
+
+15. Create global static folder and app.css
+```bash
+    mkdir static
+    touch static/app.css
+``` 
+📂 ./static/app.css
+```bash
+    // Do your own css
+```
+<br>
+
+16. Add STATICFILES_DIRS in settings.py
+```bash
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [
+        BASE_DIR / "static"
+]
+```
+<br>
+
+17. Load static css in base.html template
+```bash
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        ...
+        <link rel="stylesheet" href="{% static 'app.css' %}">
+    </head> 
+    </html>
+```
+<br>
+
+
+18. Create blog static folder and index.css
+```bash
+    mkdir blog/static
+    mkdir blog/static/blog
+    touch blog/static/blog/index.css
+```
+📂 ./blog/static/blog/index.css
+```bash
+    // Do your own css
+```
+<br>
+
+19. Load static css in blog index.html template
+```bash
+    {% extends "base.html" %}
+    {% load static %}
+
+    ...
+
+    {% block css_file %}
+        <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+    {% endblock %}
+
+    ...
+```
+<br>
