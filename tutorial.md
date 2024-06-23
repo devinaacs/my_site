@@ -79,3 +79,78 @@
     ]
 ```
 <br>
+
+9. Add Blog App definition on settings.py 
+```bash
+    INSTALLED_APPS = [
+        ...,
+        'blog',
+    ]
+```
+<br>
+
+10. Create general templates
+```bash
+    mkdir templates
+    touch templates/base.html
+```
+📂 ./templates/base.html
+```bash 
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        {% block css_file %}{% endblock %}
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+    </html>
+```
+<br>
+
+11. Add BASE_DIR/templates at my_site settings.py
+```bash
+    TEMPLATES = [
+        {
+            ...,
+            'DIRS': [
+                BASE_DIR / "templates"
+            ],
+        },
+    ]
+```
+<br>
+
+12. Create index.html for Blog Template
+```bash
+    mkdir blog/templates
+    mkdir blog/templates/blog
+    touch blog/templates/blog/index.html
+```
+📂 ./blog/templates/blog/index.html
+```bash
+    {% extends "base.html" %}
+
+    {% block title %}
+        My Blog
+    {% endblock %}
+
+    {% block content %}
+        <h1>Welcome to my blog</h1>
+    {% endblock %}
+```
+<br>
+
+13. Render index.html for blog starting_page
+
+📂 ./blog/views.py
+```bash
+    def starting_page(request):
+        return render(request, "blog/index.html")
+```
+<br>
+
