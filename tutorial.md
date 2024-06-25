@@ -221,3 +221,5 @@
     ...
 ```
 <br>
+
+20. Create Page, Template and Static file with your own way
