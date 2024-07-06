@@ -223,3 +223,16 @@
 <br>
 
 20. Create Page, Template and Static file with your own way
+
+
+21. Create Model, Relation and Migration
+
+22. Logging Data Into the Admin
+```bash
+    python3 manage.py createsuperuser
+    Username (leave blank to use 'devinacecilia'): devinacecilia
+    Email address: cecildevinaa@gmail.com
+    Password: Shinichikudo.7
+    Password (again): Shinichikudo.7 
+    Superuser created successfully.
+```
