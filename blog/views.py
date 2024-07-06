@@ -1,7 +1,7 @@
 # Create your views here.
 
 from datetime import date
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 
 all_posts = []
@@ -21,13 +21,17 @@ def starting_page(request):
 
 
 def posts(request):
+    all_posts = Post.objects.all()
     return render(request, 'blog/all-posts.html', {
         "all_posts": all_posts
     })
 
 
 def post_detail(request, slug):
-    identified_post = next(post for post in all_posts if post['slug'] == slug)
+    identified_post = get_object_or_404(Post, slug=slug)
+    # identified_post = Post.objects.get(slug=slug)
+    print(identified_post)
+    # identified_post = next(post for post in all_posts if post['slug'] == slug)
     return render(request, 'blog/post-detail.html', {
         "post": identified_post
     })
